@@ -4,9 +4,9 @@ JSInstallGuard is a small security wrapper around the package manager which inte
 
 These are checked against an allow list, and if they have not been explicitly allowed then the install script will be blocked.
 
-Note: Currently only `yarn` is supported, but `npm` support will be forthcoming!
+It supports both `yarn` and `npm` package managers.
 
-## Installation (for Yarn)
+## Installation
 Because JSInstallGuard needs to be in place before the packages are installed, it needs to be manually copied into your project directory, ideally before your very first `yarn install` or `yarn add`.
 
 ### 1. Download the code as a zip
@@ -35,9 +35,10 @@ This will add:
 
 * A `.jsig/` directory which contains the JSInstallGuard code (feel free to inspect it and make sure you trust what it's doing.)
 * A `.yarnrc` file which will ensure that it's actually JSInstallGuard that runs when you run `yarn`
+* A `.npmrc` file which will ensure that it's actually JSInstallGuard that runs when you run `npm`
 * A `jsig-allow.json` file which contains an array of the allowed scripts. Add an entry to the `allow` array to allow a trusted script to run.
 
-> If you already have a `.yarnrc` file then you will need to manually merge it.
+> If you already have a `.yarnrc` or `.npmrc` file then you will need to manually merge it.
 
 ### 3. Check it's working
 
@@ -46,8 +47,16 @@ From your project root, run
 ```bash
 yarn --version
 ```
+will check it's working with `yarn`
 
-If it's working then you will see somehting like the following at the top of the output:
+and
+
+```bash
+npm
+```
+will check it's working with `npm`
+
+If it's working then you will see something like the following at the top of both the outputs:
 
 ```
 👮‍♀️   JSInstallGuard: Using JSIG version: x.x.x`
@@ -67,7 +76,7 @@ If you find something potentially dodgy or malicious then please report it to np
 
 ### 5. Commit it into your project and share the love
 
-You should commit all the JSInstallGuard files and directory (`.jsig/`, `.yarnrc`, and `jsig-allow.json`) into your project source control so that everyone gets the benefit!
+You should commit all the JSInstallGuard files and directory (`.jsig/`, `.yarnrc`, `.npmrc`, and `jsig-allow.json`) into your project source control so that everyone gets the benefit!
 
 ## License
 
