@@ -67,7 +67,7 @@ If you find something potentially dodgy or malicious then please report it to np
 
 ### 5. Commit it into your project and share the love
 
-You should commit all the JSInstallGuard files and directory (`.jsig/`, `.yarnrc`, and `jsig-allow.json`) into your project so that everyone gets the benefit!
+You should commit all the JSInstallGuard files and directory (`.jsig/`, `.yarnrc`, and `jsig-allow.json`) into your project source control so that everyone gets the benefit!
 
 ## License
 
