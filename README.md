@@ -13,7 +13,7 @@ Because JSInstallGuard needs to be in place before the packages are installed, i
 
 You can get the latest from: https://github.com/ashward/jsinstallguard/archive/master.zip
 
-> (I know this is the master branch, but I will add versioning and proper releases soon!)
+> Note: I know this is the master branch, but I will add versioning and proper releases soon!
 
 ### 2. Unpack the zip into the root of your project.
 
@@ -27,15 +27,17 @@ If you already have a `.yarnrc` file then you will need to manually merge it.
 
 ### 3. Check it's working
 
-Run
+From your project root, run
 
 ```bash
 yarn --version
 ```
 
-If it's working then you will see the following at the top of the output:
+If it's working then you will see somehting like the following at the top of the output:
 
-`👮‍♀️   JSInstallGuard: Using JSIG version: x.x.x`
+```
+👮‍♀️   JSInstallGuard: Using JSIG version: x.x.x`
+```
 
 If you see the above you can start installing packages!
 
