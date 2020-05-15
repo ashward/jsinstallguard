@@ -13,9 +13,23 @@ Because JSInstallGuard needs to be in place before the packages are installed, i
 
 You can get the latest from: https://github.com/ashward/jsinstallguard/archive/master.zip
 
+```bash
+curl -LO https://github.com/ashward/jsinstallguard/archive/master.zip
+```
+
 > Note: I know this is the master branch, but I will add versioning and proper releases soon!
 
-### 2. Unpack the zip into the root of your project.
+### 2. Unpack the zip and copy the files into the root of your project.
+
+Unzip the files
+```bash
+unzip master.zip
+```
+
+And copy them into /your/project/root
+```bash
+cp -r jsinstallguard-master/. /your/project/root/
+```
 
 This will add:
 
@@ -23,7 +37,7 @@ This will add:
 * A `.yarnrc` file which will ensure that it's actually JSInstallGuard that runs when you run `yarn`
 * A `jsig-allow.json` file which contains an array of the allowed scripts. Add an entry to the `allow` array to allow a trusted script to run.
 
-If you already have a `.yarnrc` file then you will need to manually merge it.
+> If you already have a `.yarnrc` file then you will need to manually merge it.
 
 ### 3. Check it's working
 
