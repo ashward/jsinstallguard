@@ -54,13 +54,15 @@ module.exports = {
 
         if (
           allowed.allow.filter((allow) => {
-            return allow.path == path && allow.cmd == cmd && allow.v == version;
+            return (
+              allow.path === path && allow.cmd === cmd && allow.v === version
+            );
           }).length == 0
         ) {
           console.error();
           console.error();
           console.error(
-            "============================== JSInstallGuard ===================================="
+            "================================= JSInstallGuard ===================================="
           );
           console.error(
             "🚨   A Node module is attempting to execute a shell command which has been blocked:"
@@ -94,7 +96,7 @@ module.exports = {
             "🚨   https://docs.npmjs.com/reporting-a-vulnerability-in-an-npm-package"
           );
           console.error(
-            "=================================================================================="
+            "====================================================================================="
           );
           console.error();
 
