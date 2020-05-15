@@ -28,7 +28,7 @@ try {
     var match = yarnScript.match(/([^'"]+)\/yarn\.js/);
 
     if (match) {
-      yarnFile = match[1];
+      yarnDir = match[1];
     } else {
       throw new Error(
         `Could not determine yarn.js path from yarn script ${yarnScript}`
