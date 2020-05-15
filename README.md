@@ -72,3 +72,7 @@ You should commit all the JSInstallGuard files and directory (`.jsig/`, `.yarnrc
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
+
+## Acknowledgments
+
+* Thanks to https://github.com/martin-bucinskas for his invaluable help with testing and debugging!
