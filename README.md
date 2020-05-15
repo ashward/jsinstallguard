@@ -65,6 +65,10 @@ If you do trust it then add the given line to the `allow: []` array in `jsig-all
 
 If you find something potentially dodgy or malicious then please report it to npmjs: https://docs.npmjs.com/reporting-a-vulnerability-in-an-npm-package
 
+### 5. Commit it into your project and share the love
+
+You should commit all the JSInstallGuard files and directory (`.jsig/`, `.yarnrc`, and `jsig-allow.json`) into your project so that everyone gets the benefit!
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
