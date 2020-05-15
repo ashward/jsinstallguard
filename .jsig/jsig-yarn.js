@@ -64,7 +64,6 @@ try {
   // We intercept the 'child_process.spawn()' function call so we can check
   // whether it's in the allow list. If not we throw an error.
   ChildProcess.spawn = function (command, args, options) {
-    console.log(arguments[2]);
     if (
       arguments[2] &&
       arguments[2].env &&
