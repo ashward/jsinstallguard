@@ -64,7 +64,13 @@ try {
   // We intercept the 'child_process.spawn()' function call so we can check
   // whether it's in the allow list. If not we throw an error.
   ChildProcess.spawn = function (command, args, options) {
-    if (arguments[2].env.npm_lifecycle_event === 'install') {
+    console.log(arguments[2]);
+    if (
+      arguments[2] &&
+      arguments[2].env &&
+      (arguments[2].env.npm_lifecycle_event === "postinstall" ||
+        arguments[2].env.npm_lifecycle_event === "preinstall")
+    ) {
       let path = arguments[2].cwd;
 
       if (path.startsWith(rootDir)) {
@@ -122,9 +128,8 @@ try {
         // We will throw an error rather than just silently not running the script.
         throw new Error(`JSInstallGuard: Install script blocked for ${path}`);
       }
-
-      return originalSpawn.call(this, command, args, options);
     }
+    return originalSpawn.call(this, command, args, options);
   };
 })();
 
