@@ -5,6 +5,7 @@
 
 var ChildProcess = require("child_process");
 var Path = require("path");
+var FS = require("fs");
 var jsig = require(".");
 
 console.info(`👮‍♀️   JSInstallGuard: Using JSIG version: ${jsig.version}`);
@@ -15,12 +16,31 @@ var rootDir = process.cwd();
 var yarnDir;
 
 try {
-  yarnDir = Path.dirname(ChildProcess.execSync("which yarn").toString());
+  var yarnFile = ChildProcess.execSync("which yarn").toString().trim();
+
+  yarnDir = Path.dirname(yarnFile);
+
+  // If 'yarn.js' isn't in the same dir as the yarn' script
+  // then we will try and parse its location from the script
+  if (!FS.existsSync(Path.resolve(yarnDir, "yarn.js"))) {
+    var yarnScript = FS.readFileSync(yarnFile).toString();
+
+    var match = yarnScript.match(/([^'"]+)\/yarn\.js/);
+
+    if (match) {
+      yarnFile = match[1];
+    } else {
+      throw new Error(
+        `Could not determine yarn.js path from yarn script ${yarnScript}`
+      );
+    }
+  }
 } catch (e) {
   //  TODO: Add a way of specifying the yarn executable
   console.error(
     "🛑   JSInstallGuard: Could not find yarn executable using 'which yarn'"
   );
+  console.error("🛑   JSInstallGuard:", e.message);
   process.exit(1);
 }
 
@@ -37,7 +57,7 @@ try {
   allowed = { allow: [] };
 }
 
-(function() {
+(function () {
   // Keep a handle to the original spawn method
   var originalSpawn = ChildProcess.spawn;
 
@@ -80,7 +100,12 @@ try {
         );
         console.error();
         console.error(
-          JSON.stringify({ jsig: jsig.version, path: path, v: version, cmd: cmd })
+          JSON.stringify({
+            jsig: jsig.version,
+            path: path,
+            v: version,
+            cmd: cmd,
+          })
         );
         console.error();
         console.error(
