@@ -19,7 +19,7 @@ curl -LO https://github.com/ashward/jsinstallguard/archive/master.zip
 
 > Note: I know this is the master branch, but I will add versioning and proper releases soon!
 
-### 2. Unpack the zip and copy the files into the root of your project.
+### 2. Unpack the zip and copy the files from the `jsinstallguard/` directory into the root of your project.
 
 Unzip the files
 ```bash
@@ -28,7 +28,7 @@ unzip master.zip
 
 And copy them into /your/project/root
 ```bash
-cp -r jsinstallguard-master/. /your/project/root/
+cp -r jsinstallguard-master/jsinstallguard/. /your/project/root/
 ```
 
 This will add:
