@@ -64,7 +64,7 @@ try {
   // We intercept the 'child_process.spawn()' function call so we can check
   // whether it's in the allow list. If not we throw an error.
   ChildProcess.spawn = function (command, args, options) {
-    if (arguments[2].env.npm_lifecycle_event) {
+    if (arguments[2].env.npm_lifecycle_event === 'install') {
       let path = arguments[2].cwd;
 
       if (path.startsWith(rootDir)) {
