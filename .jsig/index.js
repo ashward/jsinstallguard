@@ -1,7 +1,7 @@
 var ChildProcess = require("child_process");
 var Path = require("path");
 
-var jsigVersion = "0.1.4";
+var jsigVersion = "0.1.5";
 
 module.exports = {
   version: jsigVersion,
@@ -57,7 +57,7 @@ module.exports = {
             return (
               allow.path === path && allow.cmd === cmd && allow.v === version
             );
-          }).length == 0
+          }).length === 0
         ) {
           console.error();
           console.error();

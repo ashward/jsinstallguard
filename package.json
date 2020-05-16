@@ -1,0 +1,22 @@
+{
+  "name": "jsinstallguard",
+  "version": "0.1.5",
+  "description": "Small security wrapper around the package manager which intercepts any preistall and postinstall scripts.",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "cp ./{.npmrc,.yarnrc,jsig-allow.json} ../../"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashward/jsinstallguard.git"
+  },
+  "keywords": [
+    "jsig"
+  ],
+  "author": "Ashley Ward <421038+ashward@users.noreply.github.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ashward/jsinstallguard/issues"
+  },
+  "homepage": "https://github.com/ashward/jsinstallguard#readme"
+}
