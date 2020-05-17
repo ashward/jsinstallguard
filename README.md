@@ -28,7 +28,7 @@ unzip master.zip
 
 And copy them into /your/project/root
 ```bash
-cp -r jsinstallguard-master/jsinstallguard/. /your/project/root/
+cp -r jsinstallguard-master/files/. /your/project/root/
 ```
 
 This will add:

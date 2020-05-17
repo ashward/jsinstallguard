@@ -4,7 +4,7 @@
   "description": "Small security wrapper around the package manager which intercepts any preistall and postinstall scripts.",
   "main": "index.js",
   "scripts": {
-    "postinstall": "cp ./{.npmrc,.yarnrc,jsig-allow.json} ../../"
+    "postinstall": "node ./postinstall.js"
   },
   "repository": {
     "type": "git",

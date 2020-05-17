@@ -1,5 +1,0 @@
-{
-    "allow": [
-        {"jsig":"0.1.5","path":"node_modules/jsinstallguard","v":"0.1.5","cmd":"cp ./{.npmrc,.yarnrc,jsig-allow.json} ../../"}
-    ]
-}
