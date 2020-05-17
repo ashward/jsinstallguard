@@ -148,6 +148,38 @@ If you find something potentially dodgy or malicious then please report it to np
 
 You should commit all the JSInstallGuard files and directory (`.jsig/`, `.yarnrc`, `.npmrc`, and `jsig-allow.json`) into your project source control so that everyone gets the benefit!
 
+## Removing it from your project
+
+If you want to remove JSInstallGuard from your project:
+
+### Delete the files
+
+```bash
+rm -rf .jsig
+```
+
+### Remove the relevant lines from `.npmrc` and `.yarnrc`
+
+From `.npmrc` remove the line starting with `onload-script=` (or delete the whole file if that's the only line)
+
+From `.yarn` remove the line starting with `yarn-path ` (or delete the whole file if that's the only line)
+
+### Remove the package from the package manager (if you installed it that way)
+
+**yarn**
+
+```bash
+yarn remove jsinstallguard
+```
+
+**npm**
+
+```bash
+npm uninstall jsinstallguard
+```
+
+Note that doing this on its own doesn't currently remove the files, so you will still need to manually remove the files as above.
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
