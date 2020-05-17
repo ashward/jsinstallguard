@@ -1,7 +1,7 @@
 var ChildProcess = require("child_process");
 var Path = require("path");
 
-var jsigVersion = "0.1.4";
+var jsigVersion = "0.1.5";
 
 module.exports = {
   version: jsigVersion,
@@ -22,6 +22,21 @@ module.exports = {
       );
       console.warn("❗   JSInstallGuard: ", e.message);
       allowed = { allow: [] };
+    }
+
+    function isTrusted(path, version, cmd) {
+      if (path === "node_modules/jsinstallguard") {
+        // Need to check that this blanket trust doesn't introduce any undue risk
+        return true;
+      }
+
+      return (
+        allowed.allow.filter((allow) => {
+          return (
+            allow.path === path && allow.cmd === cmd && allow.v === version
+          );
+        }).length > 0
+      );
     }
 
     // Keep a handle to the original spawn method
@@ -52,13 +67,7 @@ module.exports = {
 
         var version = arguments[2].env.npm_package_version;
 
-        if (
-          allowed.allow.filter((allow) => {
-            return (
-              allow.path === path && allow.cmd === cmd && allow.v === version
-            );
-          }).length == 0
-        ) {
+        if (!isTrusted(path, version, cmd)) {
           console.error();
           console.error();
           console.error(

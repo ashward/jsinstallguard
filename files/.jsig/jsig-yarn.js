@@ -6,7 +6,7 @@
 var ChildProcess = require("child_process");
 var Path = require("path");
 var FS = require("fs");
-var jsig = require(".");
+var jsig = require("./index");
 
 // Work out where the actual yarn installation is
 var yarnDir;
