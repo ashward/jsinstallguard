@@ -1,7 +1,7 @@
 var ChildProcess = require("child_process");
 var Path = require("path");
 
-var jsigVersion = "0.1.5";
+var jsigVersion = "0.1.6";
 
 module.exports = {
   version: jsigVersion,
