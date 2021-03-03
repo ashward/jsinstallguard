@@ -9,11 +9,11 @@ var FS = require("fs");
 var jsig = require("./index");
 
 // Work out where the actual yarn installation is
-var actualYarn;
+var yarnJsFile;
 
-if(process.env.jsig_yarn_file) {
+if (process.env.jsig_yarn_js_file) {
   // We're in a sub-process yarn, so use the original (top-level) one.
-  actualYarn = process.env.jsig_yarn_file;
+  yarnJsFile = process.env.jsig_yarn_js_file;
 } else {
   try {
     var yarnFile = ChildProcess.execSync("which yarn").toString().trim();
@@ -37,10 +37,10 @@ if(process.env.jsig_yarn_file) {
       }
     }
 
-    actualYarn = Path.resolve(yarnDir, "yarn.js");
+    yarnJsFile = Path.resolve(yarnDir, "yarn.js");
 
     // Store the actual Yarn dir in an env var so that child processes can pick it up
-    process.env.jsig_yarn_file = actualYarn;
+    process.env.jsig_yarn_js_file = yarnJsFile;
   } catch (e) {
     //  TODO: Add a way of specifying the yarn executable
     console.error(
@@ -53,4 +53,4 @@ if(process.env.jsig_yarn_file) {
 
 jsig.init(false);
 
-require(actualYarn);
+require(yarnJsFile);
