@@ -22,7 +22,7 @@ if (process.env.jsig_yarn_js_file) {
 
     // If 'yarn.js' isn't in the same dir as the yarn' script
     // then we will try and parse its location from the script.
-    // This seems to happen in some Hmoebrew installations
+    // This seems to happen in some Homebrew installations
     if (!FS.existsSync(Path.resolve(yarnDir, "yarn.js"))) {
       var yarnScript = FS.readFileSync(yarnFile).toString();
 
