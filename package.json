@@ -1,6 +1,6 @@
 {
   "name": "jsinstallguard",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Small security wrapper around the package manager which intercepts any preistall and postinstall scripts.",
   "main": "index.js",
   "scripts": {
