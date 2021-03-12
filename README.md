@@ -2,7 +2,9 @@
 
 JSInstallGuard is a small security wrapper around the package manager which intercepts any `preinstall` and `postinstall` scripts.
 
-These are checked against an allow list, and if they have not been explicitly allowed then the install script will be blocked.
+These are commonly the point where malicious code is inserted in compromised npm packages. By preventing these scripts running until they have been explicitly trusted, then this helps detect any potential malicious intent before it can do any damage.
+
+Package install scripts are checked against an allow list, and if they have not been explicitly allowed then the script will be blocked.
 
 It supports both `yarn` and `npm` package managers.
 
