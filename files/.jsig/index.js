@@ -1,3 +1,15 @@
+/*!
+ * This file, and the files within this .jsig directory, are part of JSInstallGuard
+ * https://github.com/ashward/jsinstallguard
+ * 
+ * If you have any problems with JSInstallGuard then please raise an issue here:
+ * https://github.com/ashward/jsinstallguard/issues
+ * 
+ * It is provided under the MIT license (see the LICENSE file in the .jsig directory)
+ * 
+ * Copyright (c) 2020 Ashley Ward <https://github.com/ashward>
+ */
+
 var ChildProcess = require("child_process");
 var Path = require("path");
 
@@ -74,7 +86,7 @@ module.exports = {
             "================================= JSInstallGuard ===================================="
           );
           console.error(
-            "🚨   A Node module is attempting to execute a shell command which has been blocked:"
+            "🚨   A Node module is attempting to execute a shell command and has been blocked:"
           );
           console.error(`🚨   Module: ${path}`);
           console.error(`🚨   Version: ${version}`);
