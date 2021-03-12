@@ -1,6 +1,6 @@
 {
   "name": "jsinstallguard",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Small security wrapper around the package manager which intercepts any preistall and postinstall scripts.",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
     "url": "git+https://github.com/ashward/jsinstallguard.git"
   },
   "keywords": [
-    "jsig"
+    "jsig", "security", "install", "preinstall", "yarn", "npm"
   ],
   "author": "Ashley Ward <421038+ashward@users.noreply.github.com>",
   "license": "MIT",
