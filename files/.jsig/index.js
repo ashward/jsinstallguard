@@ -18,10 +18,10 @@ var jsigVersion = "0.1.8";
 module.exports = {
   version: jsigVersion,
 
-  init: function (isNpm) {
+  init: function (isNpm, silent) {
     var rootDir = process.cwd();
 
-    console.info(`👮‍♀️   JSInstallGuard: Using JSIG version: ${jsigVersion}`);
+    silent || console.info(`👮‍♀️   JSInstallGuard: Using JSIG version: ${jsigVersion}`);
 
     // Get the list of allowed scripts
     var allowed;
@@ -29,10 +29,10 @@ module.exports = {
     try {
       allowed = require(Path.resolve(rootDir, "jsig-allow.json"));
     } catch (e) {
-      console.warn(
+      silent || console.warn(
         "❗   JSInstallGuard: Could not parse 'jsig-allow.json'. All install scripts will be blocked."
       );
-      console.warn("❗   JSInstallGuard: ", e.message);
+      silent || console.warn("❗   JSInstallGuard: ", e.message);
       allowed = { allow: [] };
     }
 
@@ -61,6 +61,7 @@ module.exports = {
         arguments[2] &&
         arguments[2].env &&
         (arguments[2].env.npm_lifecycle_event === "postinstall" ||
+          arguments[2].env.npm_lifecycle_event === "install" ||
           arguments[2].env.npm_lifecycle_event === "preinstall")
       ) {
         let path = arguments[2].cwd;
