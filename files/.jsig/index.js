@@ -13,7 +13,7 @@
 var ChildProcess = require("child_process");
 var Path = require("path");
 
-var jsigVersion = "0.1.8";
+var jsigVersion = "0.1.9";
 
 module.exports = {
   version: jsigVersion,
