@@ -6,14 +6,14 @@ These are commonly the point where malicious code is inserted in compromised npm
 
 Package install scripts are checked against an allow list, and if they have not been explicitly allowed then the script will be blocked.
 
-It supports both `yarn` and `npm` package managers.
+It supports the `yarn` and `npm` package managers (although only npm v6 is currently fully supported).
 
 ## Getting Started
 
 You have two options for installation. You can use the existing manual installation method (1a) as before, or you can now install it via `npm` or `yarn` (1b). Whichever method you choose make sure you check it's working before you install all your dependencies!
 
 ### 1a. Manual Installation
-Because JSInstallGuard needs to be in place before the packages are installed, it needs to be manually copied into your project directory, ideally before your very first `yarn install` or `yarn add`.
+Because JSInstallGuard needs to be in place before the packages are installed, it needs to be manually copied into your project directory, ideally before your very first `npm install` or `yarn add`.
 
 #### Download the code as a zip
 
@@ -149,6 +149,22 @@ If you find something potentially dodgy or malicious then please report it to np
 ### 4. Commit it into your project and share the love
 
 You should commit all the JSInstallGuard files and directory (`.jsig/`, `.yarnrc`, `.npmrc`, and `jsig-allow.json`) into your project source control so that everyone gets the benefit!
+
+## NPM Package Manager Support
+Unfortunately due to breaking changes in npm v7 this version is not currently supported.
+
+A workaround is to run `npm` v6 through `npx`:
+
+```bash
+npx npm@6 install
+```
+
+You can also add `npm` v6 to your project and run through `npx` without an explicit version:
+
+```bash
+npm install --save-dev npm@6
+npx npm install
+```
 
 ## Removing it from your project
 
