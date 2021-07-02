@@ -14,6 +14,39 @@ try {
   // Ignore - likely none found
 }
 
+function getNpmVersion() {
+  var matches = /npm\/((\d+)\.(\d+)\.(\d+)\S*)/.exec(process.env.npm_config_user_agent);
+
+  if(matches) {
+    return {
+      full: matches[1],
+      major: parseInt(matches[2]),
+      minor: parseInt(matches[3]),
+      patch: parseInt(matches[4])
+    }
+  }
+}
+
+var npmVersion = getNpmVersion();
+
+if(npmVersion && npmVersion.major >= 7) {
+  console.error(
+    "================================= JSInstallGuard ===================================="
+  );
+  console.error(
+    "🚨   You are currently using npm version " + npmVersion.full
+  );
+  console.error(
+    "🚨   Due to breaking changes in npm version 7, JSInstallGuard can't support this version."
+  );
+  console.error(
+    "🚨   Please use npm 6 or below to benefit from JSInstallGuard."
+  );
+  console.error(
+    "====================================================================================="
+  );
+}
+
 const rootFiles = [
   {
     dir: ".",

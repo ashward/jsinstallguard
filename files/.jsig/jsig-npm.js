@@ -16,4 +16,7 @@
 /* eslint-disable no-var */
 var jsig = require("./index");
 
-jsig.init(true);
+// Suppress the intro text unless we're doing an install
+var silent = (process.argv[2] && !['i', 'install'].includes(process.argv[2]));
+
+jsig.init(true, silent);
